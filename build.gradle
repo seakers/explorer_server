@@ -21,4 +21,4 @@ dependencies {
 
 
 
-mainClassName = "seakers.engineerserver.server.JavaServer"
+mainClassName = "seakers.explorerserver.server.JavaServer"
