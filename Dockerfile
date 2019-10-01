@@ -1,14 +1,27 @@
 ### ----------------------------------------
-### Base Image
+### Gradle Building
 ### ----------------------------------------
-FROM gradle:jdk12
+FROM gradle:jdk12 as builder
+WORKDIR /home/gradle
+COPY --chown=gradle:gradle ./. /home/gradle
 
 
 
+
+
+
+
+
+
+
+
+
+
 ### ----------------------------------------
-### Working Directory
+### Maven Base Image
 ### ----------------------------------------
-WORKDIR /app
+FROM maven:3.6.2-jdk-12
+
 
 
 
@@ -17,7 +30,17 @@ WORKDIR /app
 ### ----------------------------------------
 ### Copy Statements
 ### ----------------------------------------
+WORKDIR /app
 COPY ./. /app/.
+
+
+
+
+
+### ----------------------------------------
+### Run Command
+### ----------------------------------------
+CMD /bin/bash
 
 
 

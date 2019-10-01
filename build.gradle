@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+
+
+group 'seakers'
+version '1.0'
+sourceCompatibility = 12
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+
+
+dependencies {
+}
+
+
+
+mainClassName = "seakers.engineerserver.server.JavaServer"
