@@ -1,16 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
+package seakers.explorerserver.ga;
 
 
 // This class will have two functions
