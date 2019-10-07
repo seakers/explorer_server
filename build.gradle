@@ -28,6 +28,8 @@ dependencies {
 
 
     implementation 'org.moeaframework:moeaframework:2.12'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+
     implementation 'seakers:vassar:1.0'
     implementation 'seakers:system-architecture-problems:1.0'
   

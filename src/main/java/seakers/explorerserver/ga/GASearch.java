@@ -59,19 +59,21 @@ public class GASearch
 {
 
 
-    String resourcesPath;
+    private String resourcesPath;
+    private String vassarControllerQueue;
 
 
-    public GASearch(String pathToVassarResources)
+    public GASearch(String pathToVassarResources, String vassarControllerQueue)
     {
-        this.resourcesPath = pathToVassarResources;
+        this.resourcesPath         = pathToVassarResources;
+        this.vassarControllerQueue = vassarControllerQueue;
     }
 
 
 
 
 
-    private BinaryReturn runBinaryInputGATask(String username,
+    public BinaryReturn runBinaryInputGATask(String username,
                                               String problem,
                                               List<BinaryInputArchitecture> dataset,
                                               int    maxEvals,
@@ -104,7 +106,7 @@ public class GASearch
         BaseParams params                    = this.getProblemParameters(problem);
 
         //ArchitectureEvaluationManager AEM  = this.architectureEvaluationManagerMap.get(problem);
-        ArchitectureHandler           AH     = new ArchitectureHandler(params);
+        ArchitectureHandler           AH     = new ArchitectureHandler(params, this.vassarControllerQueue);
 
         //--> Create the assinging problem for binary GA run
         Problem assignmentProblem            = new AssigningProblem(new int[]{1}, problem, AH, params);
@@ -254,7 +256,7 @@ public class GASearch
         BaseParams params                       = this.getProblemParameters(problem);
 
         //ArchitectureEvaluationManager AEM     = this.architectureEvaluationManagerMap.get(problem);
-        ArchitectureHandler           AH        = new ArchitectureHandler(params);
+        ArchitectureHandler           AH        = new ArchitectureHandler(params, this.vassarControllerQueue);
 
         //--> Create an appropriate problem
         Problem partitioningAndAssigningProblem = new PartitioningAndAssigningProblem(problem, AH, params);

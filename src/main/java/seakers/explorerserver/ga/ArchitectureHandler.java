@@ -27,16 +27,15 @@ public class ArchitectureHandler
 
 
     private BaseParams params;
-    private String     sendArchitectureQueue;
+    private String     vassarControllerQueue;
     private String     receiveArchitectureQueue;
 
 
 
-    public ArchitectureHandler(BaseParams params)
+    public ArchitectureHandler(BaseParams params, String vassarControllerQueue)
     {
         this.params                   = params;
-        this.sendArchitectureQueue    = "queue.name";
-        this.receiveArchitectureQueue = "queue.name";
+        this.vassarControllerQueue    = vassarControllerQueue;
     }
 
 
@@ -50,13 +49,21 @@ public class ArchitectureHandler
         //--> Read the Abstract Architecture and determine what kind of VASSAR run it will be
 
 
-        //--> Query the VASSAR master controller to get a queue to place this abstract architecture in
+
+
+        //--> Query the VASSAR master controller to get a queue to place this abstract architecture in --> send username_problem or session_problem
+        String queueURL;
+
+
+
+
+
 
 
         //--> Create a message from the abstract architecture and send it to the queue specified by the VASSAR controller
 
 
-        //--> Check evaluated architectures queue to see if any messages contain the appropriate ID, get message
+        //--> Check evaluated architectures queue to see if any messages contain the appropriate ID, get message --> VASSAR instance will have this queue
 
 
         //--> Process message into Future<Result> object, return this object
@@ -66,16 +73,7 @@ public class ArchitectureHandler
 
 
 
-
-
-
-
-
-
-
-
-
-
+    public String getVassarInstanceQueue(AbstractArchitecture)
 
 
 
